@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="flex flex-wrap items-center justify-center">
+        
+    {% for path in section.subsections %}
+        <!-- Metadata does not populate the pages array of which we use the length -->
+        {% set sub = get_section(path=path, metadata_only=false) %}
+        {% set image = resize_image(path=sub.assets[0], width=450, height=225, op="fill") %}
+        <a href="{{sub.permalink | safe}}" class="hover:shadow-accent m-10">
+        <div class="card card-sm md:card-lg bg-base-300 w-64 md:w-96 shadow-lg">
+            <figure>
+                <img src="{{ image.url }}" alt="Image" class="rounded-xl w-fit object-fill">
+            </figure>
+            <div class="card-body">
+                <h2 class="card-title">{{ sub.title | safe }}</h2>
+                <p>{{ sub.description | safe }}</p>
+                <div class="card-actions justify-start">
+                    <!--<a href="{{sub.permalink | safe}}"><button class="btn btn-primary">Check it out</button></a>-->
+                    {% set page_count = sub.pages | length %}
+                    {% if page_count > 0 %}
+                        <div class="badge badge-primary">Articles: {{sub.pages | length}}</div>
+                    {% else %}
+                        <div class="badge badge-secondary">Coming Soon</div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        </a>
+    {% endfor %}
+
+    </div>
+    
+    {{ super() }}
+{% endblock content %}
