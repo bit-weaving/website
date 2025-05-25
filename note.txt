@@ -1,0 +1,4 @@
+<h4 class="py-6 text-xl">
+          The Bit Weaving team also publishes articles and tutorials on a variety of topics related to software archicture, development, and secure deployment.  Often these are created while
+          working on the open source projects that we maintain or contribute to.  We hope that you find them useful.
+        </h4>
