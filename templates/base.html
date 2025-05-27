@@ -1,81 +1,121 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/styles/style.css" />
+        <title>Bit Weaving</title>
+    </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/styles/style.css">
-  <title>Bit Weaving</title>
-</head>
-
-<body class="flex flex-col min-h-screen">
-  
-  <div class="navbar bg-base-300 shadow-lg">
-    <div class="navbar-start">
-      <div class="dropdown">
-        <div tabindex="0" role="button" class="btn btn-ghost md:hidden">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+    <body class="flex flex-col min-h-screen">
+        <div class="navbar bg-base-300 shadow-lg">
+            <div class="navbar-start">
+                <div class="dropdown">
+                    <div
+                        tabindex="0"
+                        role="button"
+                        class="btn btn-ghost md:hidden"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M4 6h16M4 12h8m-8 6h16"
+                            />
+                        </svg>
+                    </div>
+                    <ul
+                        tabindex="0"
+                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+                    >
+                        <li>
+                            <a class="text-xl" href="/services">Services</a>
+                        </li>
+                        <li>
+                            <a class="text-xl" href="/projects">Projects</a>
+                        </li>
+                        <li>
+                            <a class="text-xl" href="/articles">Articles</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex-1 items-center justify-center">
+                    <div class="flex items-center space-x-4">
+                        <a class="ml-2 md:m-0 text-xl font-mono" href="/">
+                            <img
+                                src="/images/bitweavinglogo-160.png"
+                                class="h-5 w-5 object-contain hidden md:inline md:ml-3"
+                                alt="Bit Weaving Logo"
+                            />
+                            Bit Weaving</a
+                        >
+                    </div>
+                </div>
+            </div>
+            <div class="navbar-end hidden lg:flex text-xl font-mono">
+                <ul class="menu menu-horizontal px-1 w-auto">
+                    <li><a class="text-xl" href="/services">Services</a></li>
+                    <li><a class="text-xl" href="/projects">Projects</a></li>
+                    <li><a class="text-xl" href="/articles">Articles</a></li>
+                </ul>
+            </div>
         </div>
-        <ul
-          tabindex="0"
-          class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-          <li><a class="text-xl" href="/services">Services</a></li>
-          <li><a class="text-xl" href="/projects">Projects</a></li>
-          <li><a class="text-xl" href="/articles">Articles</a></li>
-        </ul>
-      </div>
-      <div class="flex-1 items-center justify-center">
-        <div class="flex items-center space-x-4">
-          <a class="ml-2 md:m-0 text-xl font-mono" href="/">
-            <img src="/images/bitweavinglogo-160.png" class="h-5 w-5 object-contain hidden md:inline md:ml-3" alt="Bit Weaving Logo">
-            Bit Weaving</a>
-        </div>
-      </div>
-    </div>
-    <div class="navbar-end hidden lg:flex text-xl font-mono">
-      <ul class="menu menu-horizontal px-1 w-auto">
-        <li><a class="text-xl" href="/services">Services</a></li>
-        <li><a class="text-xl" href="/projects">Projects</a></li>
-        <li><a class="text-xl" href="/articles">Articles</a></li>
-      </ul>
-    </div>
-  </div>
 
-  <main class="flex flex-grow items-center justify-center">
-    {% block content %} {% endblock %}
-  </main>
+        <main class="flex flex-grow items-center justify-center">
+            {% block content %} {% endblock %}
+        </main>
 
-  <footer class="footer sm:footer-horizontal shadow-2xl bg-base-300 text-base-content p-10">
-    <aside>
-      <img src="/images/bitweavinglogo-160.png" class="h-25 w-25 object-contain" alt="Bit Weaving Logo">
-      <p class="text-2xl font-mono">
-        &copy; Bit Weaving LLC, 2025
-        <br />
-      </p>
-    </aside>
-    <nav>
-      <h6 class="footer-title">Services</h6>
-      <a class="link link-hover">Workshops</a>
-      <a class="link link-hover">Consulting</a>
-      <a class="link link-hover">Senior Engineer Coaching</a>
-    </nav>
-    <nav>
-      <h6 class="footer-title">Projects</h6>
-      <a class="link link-hover" href="https://github.com/bit-weaving/website">This site.</a>
-      <a class="link link-hover" href="https://github.com/bit-weaving/backend">Backend</a>
-    </nav>
-    <nav>
-      <h6 class="footer-title">Company</h6>
-      <a class="link link-hover" href="/company/aboutus">About us</a>
-      <a class="link link-hover" href="/company/contactus">Contact</a>
-    </nav>
-    <nav>
-      <h6 class="footer-title">Legal</h6>
-      <a class="link link-hover" href="/legal/privacy-policy">Privacy policy</a>
-    </nav>
-  </footer>
-  
-
-</body>
-
+        <footer
+            class="footer sm:footer-horizontal shadow-2xl bg-base-300 text-base-content p-10"
+        >
+            <aside>
+                <img
+                    src="/images/bitweavinglogo-160.png"
+                    class="h-25 w-25 object-contain"
+                    alt="Bit Weaving Logo"
+                />
+                <p class="text-2xl font-mono">
+                    &copy; Bit Weaving LLC, 2025
+                    <br />
+                </p>
+            </aside>
+            <nav>
+                <h6 class="footer-title">Services</h6>
+                <a class="link link-hover">Workshops</a>
+                <a class="link link-hover">Consulting</a>
+                <a class="link link-hover">Senior Engineer Coaching</a>
+            </nav>
+            <nav>
+                <h6 class="footer-title">Projects</h6>
+                <a
+                    class="link link-hover"
+                    href="https://github.com/bit-weaving/website"
+                    >This site.</a
+                >
+                <a
+                    class="link link-hover"
+                    href="https://github.com/bit-weaving/backend"
+                    >Backend</a
+                >
+            </nav>
+            <nav>
+                <h6 class="footer-title">Company</h6>
+                <a class="link link-hover" href="/company/aboutus">About us</a>
+                <a class="link link-hover" href="/company/contactus">Contact</a>
+            </nav>
+            <nav>
+                <h6 class="footer-title">Legal</h6>
+                <a class="link link-hover" href="/legal/privacy-policy"
+                    >Privacy policy</a
+                >
+            </nav>
+        </footer>
+    </body>
 </html>
