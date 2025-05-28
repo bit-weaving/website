@@ -1,6 +1,7 @@
 {% extends "base.html" %} {% block content %}
 <article class="prose lg:prose-xl">
     <h1>{{ section.title }}</h1>
+    <p>{{ section.description }}</p>
     {% for page in section.pages %}
     <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
     {% endfor %}

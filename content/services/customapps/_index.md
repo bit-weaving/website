@@ -1,6 +1,6 @@
 +++
 title = "Custom application development"
 description = "We are here to help you build out the vision your have for your apps."
-template="subsection.html"
+template="service_subsection.html"
 weight = 2
 +++

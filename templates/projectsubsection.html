@@ -1,16 +1,17 @@
-{% extends "base.html" %}
-{% block content %}
-        <article class="prose lg:prose-xl ">
-            <h1>{{ section.title }}</h1>
-            <p>{{ section.description }}</p>
-            <p>Check it out on <a href="{{section.extra.github}}">github</a>.</p>
+{% extends "base.html" %} {% block content %}
+<article class="prose lg:prose-xl">
+    <h1>{{ section.title }}</h1>
+    <p>{{ section.description }}</p>
+    <p>Check it out on <a href="{{section.extra.github}}">github</a>.</p>
 
-            <h2>Specific articles on parts of the project are found below:</h2>
-            {% for page in section.pages %}
-                <a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
-            {% endfor %}
-        </article>
+    <h2>Specific articles on parts of the project are found below:</h2>
 
-    {{ super() }}
+    {% set page_count = section.pages | length %} {% if page_count > 0 %} {% for
+    page in section.pages %}
+    <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+    {% endfor %} {% else %}
+    <div class="badge badge-secondary">Coming Soon</div>
+    {% endif %}
+</article>
 
-{% endblock content %}
+{{ super() }} {% endblock content %}
