@@ -1,0 +1,13 @@
+{% extends "base.html" %} {% block content %}
+<div class="m-10">
+    <article class="prose lg:prose-xl">
+        <h1>{{ page.title }}</h1>
+        {{ page.content | safe }}
+        <a
+            href="mailto:info@bitweaving.com?subject={{ page.extra.offeringid }}:{{ page.extra.offeringsubject}}"
+            >Email us</a
+        >
+        at <span class="font-bold">info@bitweaving.com</span>
+    </article>
+</div>
+{% endblock content %}
