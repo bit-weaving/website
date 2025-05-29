@@ -6,7 +6,8 @@
     "tailwindcss": "^4.1.3"
   },
   "scripts": {
-    "serve": "npx @tailwindcss/cli -i ./tailwind.css -o ./static/styles/style.css --watch & zola serve"
+    "serve": "npx @tailwindcss/cli -i ./tailwind.css -o ./static/styles/style.css --watch && zola serve",
+    "cloudflare": "npx @tailwindcss/cli -i ./tailwind.css -o ./static/styles/style.css --minify && zola serve"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.16",
