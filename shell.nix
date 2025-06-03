@@ -5,5 +5,5 @@ let
   pkgs = import (fetchTarball("https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz")) {};
 
 in pkgs.mkShell {
-  buildInputs = [ pkgs.zola pkgs.nodejs ];
+  buildInputs = [ pkgs.zola pkgs.nodejs pkgs.wrangler];
 }
