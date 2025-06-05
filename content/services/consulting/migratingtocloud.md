@@ -1,11 +1,11 @@
 +++
-title = "Migrating/connecting on-premise identity to the cloud"
+title = "Connecting on-premise identity to the cloud"
 authors = ["Shane Oatman"]
 description = "Assistance with the planning and execution of migration and/or connection of on-premise identity to one or more cloud providers."
 keywords = ["consulting", "project management", "identity", "identity management", "identity provisioning", "sync", "authentication", "federation", "SAML", "Azure Active Directory", "Entra","Entra ID", "Entra Connect" ]
 updated = "2025-05-09"
 [meta]
-    title = "Intro to the rust programming language"
+    title = "Connecting on-premise identity to the cloud"
     description = "Assistance with the planning and execution of migration and/or connection of on-premise identity to one or more cloud providers."
     author = "Shane Oatman"
 [extra]

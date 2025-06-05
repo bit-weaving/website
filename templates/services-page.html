@@ -2,7 +2,7 @@
 <div class="m-10">
     <article class="prose lg:prose-xl">
         <h1>{{ page.title }}</h1>
-        {{ page.content | safe }}
+        <p>{{ page.content | safe }}</p>
         <a
             href="mailto:info@bitweaving.com?subject={{ page.extra.offeringid }}:{{ page.extra.offeringsubject}}"
             >Email us</a

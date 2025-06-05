@@ -6,7 +6,9 @@
   },
   "scripts": {
     "serve": "npx @tailwindcss/cli -i ./tailwind.css -o ./static/styles/style.css --watch && zola serve",
-    "cloudflare": "npx @tailwindcss/cli -i ./tailwind.css -o ./static/styles/style.css --minify && zola build --base-url https://website.shane-2c1.workers.dev/"
+    "buildcss": "npx @tailwindcss/cli -i ./tailwind.css -o ./static/styles/style.css --minify",
+    "cloudflare": "npx @tailwindcss/cli -i ./tailwind.css -o ./static/styles/style.css --minify && zola build --base-url https://website.shane-2c1.workers.dev/",
+    "cloudflare-prod": "npx @tailwindcss/cli -i ./tailwind.css -o ./static/styles/style.css --minify && zola build --base-url https://bitweaving.com/"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.16",
