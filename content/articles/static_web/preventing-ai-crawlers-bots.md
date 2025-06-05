@@ -28,6 +28,9 @@ The legal status of AI and it's use of copyrighted content (authorized, unauthor
 - [Bing Webmaster Tools](https://www.bing.com/webmaster)
 - [Voluntary Compliance](https://en.wikipedia.org/wiki/Voluntary_compliance)
 - [Copyright.gov (United States Copyright Office)](https://www.copyright.gov/)
+- [European Union Intellectual Property Office](https://www.euipo.europa.eu/)
+- [Completely Automated Public Turing Test to tell Computers and Humans Apart (CAPTCHAs)](https://en.wikipedia.org/wiki/CAPTCHA)
+
 
 ## Lawsuits against AI organizations
 
@@ -52,3 +55,7 @@ This is a non exhaustive list of legal uses of content.
 ## robots.txt
 
 robots.txt was created in 1994 and became a defacto standard for the early web in that same year.  If you were not there to remember the birth of the web This may be helpful context:  [What tech as like in 1994](https://www.businessinsider.com/tech-in-1994-the-year-the-web-was-born-2014-8).  At that time the web was small enough to known the names of all bots in the world.  As such you could create a file for bots to read that would tell them what they were allowed to do in terms of crawling and indexing your website.
+
+## CAPTCHA & UI Interrupts
+
+## Security / Authentication / Authorization
