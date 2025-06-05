@@ -52,9 +52,28 @@ This is a non exhaustive list of legal uses of content.
 
 ## Copyright
 
+> I'm not a lawyer, i've provided links to both the US and EU copyright offices in the references please refer to those and the legal jurisdiction(s) that apply to you or your organization.  Copyright law varies by jurisdiction.
+
+Copyright is the legal foundation (in applicable jurisdictions) for the protection of your creative work.  It's worthwile to familiarize your self with with how it works.  It's often not required to take an explicit step once your creating work is "fixed" (completed / published).  With that said, there are recommended and optional steps you can take:
+
+- In the United States where I reside, it's often recommended to include a copyright statement or to include the copyright symbol &copy; and the year.
+- You can go a step further and explicity register your work with either the US or the EU copyright offices.
+
 ## robots.txt
 
-robots.txt was created in 1994 and became a defacto standard for the early web in that same year.  If you were not there to remember the birth of the web This may be helpful context:  [What tech as like in 1994](https://www.businessinsider.com/tech-in-1994-the-year-the-web-was-born-2014-8).  At that time the web was small enough to known the names of all bots in the world.  As such you could create a file for bots to read that would tell them what they were allowed to do in terms of crawling and indexing your website.
+robots.txt is the defacto standard by which a website can indicate to software agents (web crawlers, search engine bots, AI bots) whether they authorized to consume the content of the site.  robots.txt was created in 1994.  If you were not there to remember the birth of the web This may be helpful context:  [What tech as like in 1994](https://www.businessinsider.com/tech-in-1994-the-year-the-web-was-born-2014-8).  At that time the web was small enough to known the names of all bots in the world.
+
+> NOTE: If **no** robots.txt is available at the root of your domain.  Then all visiting bots understand that they are allowed to crawl, consume, index your site.
+
+There is no actual authorization check or enforecment by a web site.  Those of us publishing on the web are relying on the voluntary compliance of the creators of the software agents that come across websites.  Most of the major search engine bots already do comply... if they didn't there would be potentially be both legal, financial and reputational risk.
+
+With the arrival of AI, it's still true that larger organizations creating and/or using AI bots do voluntarily comply with robots.txt.  With that said there are a number of smaller AI organizations that do not currently comply.  Hence the legal proceeding referenced above.
+
+
+
+### Knowing every AI bot in the world
+
+I have no idea how many AI bots are out there potentially reading this website.  Fortunately there are organizations and open source projects that provide a reference list of known AI agents, that's kept current, that do comply with robots.txt.
 
 ## CAPTCHA & UI Interrupts
 
