@@ -2,12 +2,10 @@
 title = "Algorithms and their associated key types"
 authors = ["Shane Oatman"]
 description = "Discusses cryptographic algorithms and their associated key types"
-keywords = ["cryptography", "symetric", "asymetric", "keys", "private key", "public key", "pkcs", "sec1", "pkcs8"]
 updated = "2025-05-09"
-[meta]
-    title = "Algorithms and their associated key types"
-    description = "Discusses cryptographic algorithms and their associated key types"
-    author = "Shane Oatman"
+draft = true
+[extra]
+keywords = ["cryptography", "symetric", "asymetric", "keys", "private key", "public key", "pkcs", "sec1", "pkcs8"]
 +++
 
 # Introduction

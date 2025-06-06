@@ -2,15 +2,12 @@
 title = "Demonstrated proof of possession"
 authors = ["Shane Oatman"]
 description = "Provides a introduction to the Demonstrated proof of possesion specification (DPoP) for OAuth v2.0.  Then a deep dive on how to use DPoP to cryptographically bind the client to the tokens issues by the authorization server."
-keywords = ["openid", "oauth", "oauth 2.0", "oauthv2", "proof", "public", "confidential", "protocol", "authorization", "authentication", "claims", "identity", "API", "https://datatracker.ietf.org/doc/html/rfc9449"]
 updated = "2025-05-09"
-[meta]
-    title = "Oauth"
-    description = "Provides a introduction to the Demonstrated proof of possesion specification (DPoP) for OAuth v2.0.  Then a deep dive on how to use DPoP to cryptographically bind the client to the tokens issues by the authorization server."
-    author = "Shane Oatman"
 [extra]
 offeringid = "DPOP"
 offeringsubject = "Training inquiry"
+keywords = ["openid", "oauth", "oauth 2.0", "oauthv2", "proof", "public", "confidential", "protocol", "authorization", "authentication", "claims", "identity", "API", "https://datatracker.ietf.org/doc/html/rfc9449"]
+
 +++
 > This training is platform/language agnostic and focuses on the standard protocols.
 This training can be tailored to address your specific tools and languages.

@@ -11,6 +11,19 @@
             type="image/png"
             href="/images/bitweavinglogo-160.png"
         />
+        {% if page and page.authors %}
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Article",
+                "headline": "{{page.title}}",
+                "image": [],
+                "dateModified": "{{page.updated}}",
+                "author": "{{page.authors}}",
+                "keywords": "{{page.extra.keywords}}"
+            }
+        </script>
+        {% endif %}
     </head>
 
     <body class="flex flex-col min-h-screen">
