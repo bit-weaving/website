@@ -2,7 +2,7 @@
 title = "Stop AI crawlers and bots from stealing your content"
 authors = ["Shane Oatman"]
 description = "Discusses how to use robots.txt and features provided by servers and services to prevent AI crawlers and bots from using or stealing your content."
-updated = "2025-06-05"
+updated = "2025-06-06T22:14:17+00:00"
 [extra]
 keywords = ["robots.txt", "ai", "bots", "crawler", "web crawler", "hosting", "serverless", "copyright", "html", "content", "pages", "copyright", "artificial intelligence", "content", "work", "web", "world wide web", "intellectual capital", "theft", "misuse", "misappropriation"]
 +++

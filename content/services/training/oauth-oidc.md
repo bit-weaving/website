@@ -2,7 +2,7 @@
 title = "OAuth v2 & OIDC Introduction"
 authors = ["Shane Oatman"]
 description = "Training provides a solid foundation in the OAuth v2 authorization protocol and then moves on to the same for the OpenID Connect authentication protocol."
-updated = "2025-05-09"
+updated = "2025-06-06T22:14:17+00:00"
 [extra]
 offeringid = "OAUTHOPENID"
 offeringsubject = "Training inquiry"

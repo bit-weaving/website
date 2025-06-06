@@ -2,7 +2,7 @@
 title = "Structured data for enriched results"
 authors = ["Shane Oatman"]
 description = "Discusses how to include structured data in your site to improve SEO and take advantage enriched search results provided by search engines."
-updated = "2025-05-09"
+updated = "2025-06-06T22:14:17+00:00"
 draft = true
 [extra]
 keywords = ["structured data", "schema.org", "article", "google search", "bing search", "json-ld", "ld-json", "enriched", "search", "results", "zola", "rust"]

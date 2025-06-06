@@ -2,7 +2,7 @@
 title = "Intro to the rust programming language"
 authors = ["Shane Oatman"]
 description = "Introduction to the rust programming language and tools eco-system.  Tips on transition from other languages."
-updated = "2025-05-09"
+updated = "2025-06-06T22:14:17+00:00"
 [extra]
 offeringid = "RUSTINTRO"
 offeringsubject = "Training inquiry"

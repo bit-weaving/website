@@ -2,7 +2,7 @@
 title = "Connecting on-premise identity to the cloud"
 authors = ["Shane Oatman"]
 description = "Assistance with the planning and execution of migration and/or connection of on-premise identity to one or more cloud providers."
-updated = "2025-05-09"
+updated = "2025-06-06T22:14:17+00:00"
 [extra]
 offeringid = "CLOUDMIGRATION"
 offeringsubject = "Consulting inquiry"

@@ -2,7 +2,7 @@
 title = "JSON Web Signature & JSON Web Encryption"
 authors = ["Shane Oatman"]
 description = "Introduction to the JWS and JWE libraries."
-updated = "2025-05-09"
+updated = "2025-06-06T22:14:17+00:00"
 [meta]
     title = "JWS & JWE Rust Libraries"
     description = "A rust implementation of the JWE and JWS Specification"

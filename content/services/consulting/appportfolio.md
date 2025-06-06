@@ -2,7 +2,7 @@
 title = "Managing your application portfolio"
 authors = ["Shane Oatman"]
 description = "Assistance with tracking and understanding the lifecycle of your applications, the data that they house and/or have access to, and how to consistently protect them from mis-use."
-updated = "2025-05-09"
+updated = "2025-06-06T22:14:17+00:00"
 [extra]
 offeringid = "APPPORTFOLIO"
 offeringsubject = "Consulting inquiry"

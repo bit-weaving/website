@@ -2,7 +2,7 @@
 title = "Demonstrated proof of possession"
 authors = ["Shane Oatman"]
 description = "Provides a introduction to the Demonstrated proof of possesion specification (DPoP) for OAuth v2.0.  Then a deep dive on how to use DPoP to cryptographically bind the client to the tokens issues by the authorization server."
-updated = "2025-05-09"
+updated = "2025-06-06T22:14:17+00:00"
 [extra]
 offeringid = "DPOP"
 offeringsubject = "Training inquiry"

@@ -2,10 +2,10 @@
 title = "Algorithms and their associated key types"
 authors = ["Shane Oatman"]
 description = "Discusses cryptographic algorithms and their associated key types"
-updated = "2025-05-09"
+updated = "2025-06-06T22:14:17+00:00"
 draft = true
 [extra]
-keywords = ["cryptography", "symetric", "asymetric", "keys", "private key", "public key", "pkcs", "sec1", "pkcs8"]
+keywords = ["cryptography", "symmetric", "asymmetric", "keys", "private key", "public key", "pkcs", "sec1", "pkcs8"]
 +++
 
 # Introduction
