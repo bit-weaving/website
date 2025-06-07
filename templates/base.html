@@ -17,9 +17,13 @@
                 "@context": "https://schema.org",
                 "@type": "Article",
                 "headline": "{{page.title}}",
-                "image": [],
+                {% if page.extra.image %}
+                "image": "{{page.extra.image | safe}}",
+                {% endif %}
                 "dateModified": "{{page.updated}}",
-                "author": "{{page.authors}}",
+                {% if page.extra.author %}
+                "author": {{page.extra.author | safe}},
+                {% endif %}
                 "keywords": "{{page.extra.keywords}}",
                 "url": "{{current_url | safe}}"
             }

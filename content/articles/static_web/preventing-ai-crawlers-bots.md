@@ -5,6 +5,16 @@ description = "Discusses how to use robots.txt and features provided by servers 
 updated = "2025-06-06T22:14:17+00:00"
 [extra]
 keywords = ["robots.txt", "ai", "bots", "crawler", "web crawler", "hosting", "serverless", "copyright", "html", "content", "pages", "copyright", "artificial intelligence", "content", "work", "web", "world wide web", "intellectual capital", "theft", "misuse", "misappropriation"]
+image = "https://bitweaving.com/images/craig-sybert-S-vkpXA3os8-unsplash.jpg"
+author = '''
+{
+      "@type": "Person",
+      "url": "www.linkedin.com/in/shane-oatman",
+      "name": "Shane Oatman",
+      "pronouns": "he/him",
+      "email": "shane@bitweaving.com"
+}
+'''
 +++
 
 

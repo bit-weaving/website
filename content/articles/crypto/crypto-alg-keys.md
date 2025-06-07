@@ -1,6 +1,15 @@
 +++
 title = "Algorithms and their associated key types"
-authors = ["Shane Oatman"]
+authors = ['''
+{
+      "@type": "Person",
+      "url": "www.linkedin.com/in/shane-oatman",
+      "name": "Shane Oatman",
+      "pronouns": "he/him",
+      "email": "shane@bitweaving.com"
+    }
+}
+''']
 description = "Discusses cryptographic algorithms and their associated key types"
 updated = "2025-06-06T22:14:17+00:00"
 draft = true
