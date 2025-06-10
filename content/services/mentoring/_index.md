@@ -1,6 +1,6 @@
 +++
 title = "Mentoring"
-description = "Are you as an individual looking for someone to provide assistance and feedback on your technology career."
+description = "Looking to grow your career in technology? We offer mentoring to help take you to the next level."
 template="service_subsection.html"
 weight = 4
 [extra]

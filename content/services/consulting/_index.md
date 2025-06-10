@@ -1,6 +1,6 @@
 +++
 title = "Consulting"
-description = "Need help with securing your systems or unsure about a technological and or architctural direction?  We can help!"
+description = "Need expert guidance on securing your systems or navigating complex technology and architectural decisions?"
 template="service_subsection.html"
 weight = 1
 +++
