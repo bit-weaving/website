@@ -2,15 +2,11 @@
 title = "OAuth v2 & OIDC Introduction"
 authors = ["Shane Oatman"]
 description = "Training provides a solid foundation in the OAuth v2 authorization protocol and then moves on to the same for the OpenID Connect authentication protocol."
-keywords = ["openid", "oauth", "protocol", "authorization", "authentication", "claims", "identity", "API"]
-updated = "2025-05-09"
-[meta]
-    title = "OAuth v2 & OIDC Introduction"
-    description = "Training provides a solid foundation in the OAuth v2 authorization protocol and then moves on to the same for the OpenID Connect authentication protocol."
-    author = "Shane Oatman"
+updated = "2025-06-06T22:14:17+00:00"
 [extra]
 offeringid = "OAUTHOPENID"
 offeringsubject = "Training inquiry"
+keywords = ["openid", "oauth", "protocol", "authorization", "authentication", "claims", "identity", "API"]
 +++
 > This training is platform/language agnostic and focuses on the standard protocols.
 This training can be tailored to address your specific tools and languages.

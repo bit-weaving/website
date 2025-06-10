@@ -2,15 +2,11 @@
 title = "Intro to the rust programming language"
 authors = ["Shane Oatman"]
 description = "Introduction to the rust programming language and tools eco-system.  Tips on transition from other languages."
-keywords = ["rust", "rustlang", "cargo", "packages", "crates", "training", "cli", "web application", "api", "workshop", "examples" ]
-updated = "2025-05-09"
-[meta]
-    title = "Intro to the rust programming language"
-    description = "Introduction to the rust programming language and tools eco-system. Tips on transition from other languages."
-    author = "Shane Oatman"
+updated = "2025-06-06T22:14:17+00:00"
 [extra]
 offeringid = "RUSTINTRO"
 offeringsubject = "Training inquiry"
+keywords = ["rust", "rustlang", "cargo", "packages", "crates", "training", "cli", "web application", "api", "workshop", "examples" ]
 +++
 
 > This training can be tailored to address the transition from a current language you use to Rust.

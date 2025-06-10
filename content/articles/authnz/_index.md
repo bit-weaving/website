@@ -1,6 +1,6 @@
 +++
-title = "Authentication & Authorization" 
-description = "Articles related to the practical use of cryptography in software development"
+title = "Authentication & Authorization"
+description = "Articles to authentication and authorization"
 template="subsection.html"
 weight = 0
 +++

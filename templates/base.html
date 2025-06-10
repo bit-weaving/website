@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="msvalidate.01" content="4BB294D03CB3BD484B421E86C8C4BCEB" />
         <link rel="stylesheet" href="/styles/style.css" />
         <title>Bit Weaving</title>
         <link
@@ -10,6 +11,24 @@
             type="image/png"
             href="/images/bitweavinglogo-160.png"
         />
+        {% if page and page.authors %}
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Article",
+                "headline": "{{page.title}}",
+                {% if page.extra.image %}
+                "image": "{{page.extra.image | safe}}",
+                {% endif %}
+                "dateModified": "{{page.updated}}",
+                {% if page.extra.author %}
+                "author": {{page.extra.author | safe}},
+                {% endif %}
+                "keywords": "{{page.extra.keywords}}",
+                "url": "{{current_url | safe}}"
+            }
+        </script>
+        {% endif %}
     </head>
 
     <body class="flex flex-col min-h-screen">
@@ -128,6 +147,9 @@
                 <h6 class="footer-title">Legal</h6>
                 <a class="link link-hover" href="/legal/privacy-policy"
                     >Privacy policy</a
+                >
+                <a class="link link-hover" href="/legal/image-attribution"
+                    >Image attribution</a
                 >
             </nav>
         </footer>
