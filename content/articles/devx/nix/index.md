@@ -33,7 +33,8 @@ This article provides a high level overview of:
 - Nix Package Manager / github repository
 - NixOS
 - Nix Wiki
-- shell.nix / flake.nix
+
+> Nix and it's tools are continually evolving.  If you read about Nix you're likely to come across the discussion of Flakes, which address some of the shortcomings of traditional nix derivations.  Flakes are an experimental feature and are not enabled by default, if you intend to use NixOS or the Nix Package Manager within your projects and you want to use flakes keep in mind that contributors to your repo may not be familiar with flakes.  This is the last mention of flakes, when you see shell.nix your can replace that in your mind with flake.nix if you choose to use flakes.
 
 ## References
 
@@ -42,6 +43,8 @@ This article provides a high level overview of:
 - [nix.dev - Documentation](https://nix.dev/)
 - [Nix manual](https://nix.dev/manual/nix/2.28/introduction)
 - [Nixpkgs manual](https://nixos.org/manual/nixpkgs/stable/)
+- [Nix Package Manager & NixOS Download](https://nixos.org/download/)
+- [Nix Package Search](https://search.nixos.org/packages)
 
 ## Nix History
 
@@ -63,6 +66,8 @@ The Nix language is a functional programming language used to describe how to pr
   - `builtins.fetchUrl` - Fetches a URL and returns the contents as a string
 
 > For a complete list please see [https://nix.dev/manual/nix/2.28/language/builtins](https://nix.dev/manual/nix/2.28/language/builtins)
+
+> I'm not going to spend much time on reviewing basic language features as I think that's well addressed in the nix.dev documentation.  I don't think it's necessary to be particularly fluent to get value from NixOS and the Nix Package Manager.
 
 ### Additional Libraries
 
@@ -140,12 +145,98 @@ stdenv.mkDerivation rec {
 7. makeFlags is an array for mkDerivation to use when invoking make.
 8. meta specifies metadata about the package being built.  This metadata is useful for conveying thinks like the supported platforms of tool.
 
-
+The package hash is very important to how download packages and/or nixos system components are kept in the Nix store.
 
 
 ## Nix Store
 
+The nix store is a directory structure that contains all of the packages installed on a system.  It is intended to be managed by nix binaries and not touched directly.  Each package gets its own folder in the store where a cryptographic hash of the packages build dependency graph is prepended to the package folder name.
+
+For example for the zed editor (1.88.3) on my machine:
+
+```bash
+
+# The version I'm currently using
+/nix/store/rxp6ikcx1vbpicn8j3d5bqy3sa7qkgal-zed-editor-0.188.3
+
+# Prior versions in the store
+/nix/store/31k7n3mdvir4j60p4zw8sq6fvrp3nhda-zed-editor-0.161.2
+/nix/store/31k7n3mdvir4j60p4zw8sq6fvrp3nhda-zed-editor-0.161.2
+
+```
+
+You can see that nix can have multiple versions of the same package installed at the same time.  This is what enables the rollback feature of NixOS and allows nix package developers to get around ["dll hell"](https://en.wikipedia.org/wiki/DLL_hell) and avoid problems with different versions of shared libraries on unix/linux.
+
+You can also see that the same version of the zed editor (1.61.2) is stored twice.  The hash was different, meaning that even though the version of zed was the same, some part of the zed dependency graph were different.
+
+These folders contain the zed binary, as well as icons and any other application resources required by the application.
+
+### On nixos
+
+NixOS is a full linux distribution.  Linux relies on the linux directory structure in order to find the versions of the libraries and binaries (package output) in specific folders like: /bin, /lib, /lib64, /usr/bin, /usr/lib, /usr/lib64, /usr/share, etc.
+
+NixOS uses symbolic links to map between the standard linux directory structure and the nix store.
+
+#### Rollback and Garbage collections
+
+We want to be able to rollback to prior good states of the operating system when necessary and NixOS has a backup for each system configuration that you build and switch to.  All prior states are maintained unless you explicitly remove them. In NixOS these prior good states are called generations.
+
+```bash
+# Get a list of generations (prior good states) present in the nix store
+nixos-rebuild list-generations
+
+# Rollback to a prior generation
+nixos-rebuild switch --rollback
+
+# Garbage collect old generations
+nix-collect-garbage -d
+```
+
+### In a shell/environment
+
+NixOS and the nix package manager can build and run specific versions of packages in a shell/environment.  This allows you to try an application before committing to adding it to you nixos configuration file.  (We'll look at the nixos config later in this document).  It also allows you to try a new version of an application without interfering with any work in progress.  The main benefit to me is not having to install anything globally on the system.  If I need a particular version of nodejs for a project or the nightly release of the rust tools, i can just define a shell.nix telling nix what I need to have present for this particular project.You can go further and use direnv to run nix-shell automatically when you cd into a directory where a shell.nix file is present.
+
+Here's a look at the contents of the shell.nix file in the root of the github repository for this website:
+
+```nix
+
+let
+  # Import the Nixpkgs repository
+  # You can change the URL to point to a specific commit, tag, hash, etc...
+  pkgs = import (fetchTarball("https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz")) {};
+
+in pkgs.mkShell {
+  buildInputs = [ pkgs.zola pkgs.nodejs pkgs.wrangler ];
+}
+
+```
+
+When I move into this folder either in the terminal in zed or in an external terminal the Zola static site generator, nodejs and the Cloudflare worker cli wrangler are installed and made available within the shell.
+
+If someone on your team doesn't want to use the nix package manager or direnv... that's fine, just don't run nix-shell.  They can install the required tools globally if they must.
+
+
+
 ## Package Manager / repository
+
+The nix package manager can be installed on Linux, macOS and Windows via the Windows Sub-system for Linux.  All Nix packages (derivations) are built from source on the system/environment where they are installed.  Nix does have a pre-built binary cache that's enabled by default and can be overriden.
+
+All nix packages (nix derivations / build files) are stored in the [nixpkgs repo](https://github.com/NixOS/nixpkgs) within the nixos github organization.  In the pkgs folder you can find every published nix package.
+
+> Since the nix files (.nix extension) are open source and in the github repo, it's easy to understand how a package is being built.  It's also easy to submit pull requests to add packages or to modify and existing package (update to a newer version).
+
+### How to install packages
+
+As mentioned in the prior nix store section, packages can be installed in a shell environment using the nix-shell command.  On NixOS packages can be declared in the configuration.nix (main configuration file for nix).  We'll take a close look at NixOS configuration below.
+
+We mentioned flakes near the top of the article one of the benefits of flakes is that we can lock the versions of individual packages.  If you're not using flakes packages are installed from publishing channels that you can switch between.  Example channel names include:
+
+- the current and other NixOS release version numbers
+- unstable
+
+> You can see a list of all available channels [here](https://channels.nixos.org/).
+
+Not all packages available in the nix package manager are able to be built or to be run on all systems.  This is where package metadata comes into play.
 
 ### Package Metadata
 
@@ -164,3 +255,86 @@ meta = {
     platforms = lib.platforms.linux ++ lib.platforms.darwin;
   };
 ```
+
+Basic things like name, version and links to the homepage, change log and license are included.  As well you can find the name of the binary (executable) and the platforms on which this package is available for use.
+
+If you attempt to install a package on platform where it's not supported, you will receive an error message indicating that the package is not available for your system.
+
+## NixOS
+
+The NixOS linux distribution installs like pretty much all other linux distributions, so I'm not going to cover that.
+
+Once installed you will find:
+
+- The nix store within the /nix folder
+- The NixOS configuration files in the /etc/nixos folders
+- a hardware-configuration.nix file in /etc/nixos
+- a configuration.nix file in /etc/nixos
+
+You can safely ignore the hardware-configuration.nix file for now.  The contents of this file are determined by the installer.
+
+The configuration.nix file is where you will actually configure your system.
+
+> Many NixOS users have shared their NixOS configuration files on github.  Some google searching will help find some good examples.  I started with a configuration from someone else and then modified to suit my requirements.  My NixOS configuration is on github [https://github.com/sbitweave/nix](https://github.com/sbitweave/nix)
+
+Although we don't have time to walkthrough all the details of the configuration.nix (feel free to read through mine, linked above).  There are a few key settings to be aware of. The first one I will call your attention to is the setting that controls whether "unfree" software can be installed.  You'll want to set this to true, if you plan to install any software that a package metadata has not marked as free.
+
+```nix
+{
+  nixpkgs.config.allowUnfree = true;
+}
+```
+
+If you want to use any experimental features you can enable them by name.  In my case I enable support for flakes and for the nix command.  Prior to the nix command everything was a separate binary CLI.  With the nix command: nix-shell becomes: nix shell.
+
+```nix
+{
+  experimental-features = [ "nix-command" "flakes" ];
+}
+```
+
+Automatic garbage collection of older generations is a good thing to enable, to avoid running out of disk space.
+
+```nix
+nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+
+```
+
+Installing system wide packages (global packages).  In my case this is limited to things that I use to make Star Craft 2 playable (Wine), git, gcc, the new cross platform yubikey manager app, and the brightnessctl (for display brightness control).
+
+```nix
+environment.systemPackages = with pkgs; [
+    #Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+
+    brightnessctl
+    gitFull
+    gcc
+    hplip
+    # yubikey manager
+    yubioath-flutter
+    wineWowPackages.stable
+    # support 64-bit only
+    (wine.override { wineBuild = "wine64"; })
+    # support 64-bit only
+    wine64
+    # wine-staging (version with experimental features)
+    wineWowPackages.staging
+    # winetricks (all versions)
+    winetricks
+
+    # native wayland support (unstable)
+    wineWowPackages.waylandFull
+  ];
+
+
+Any time you modify your configuration file you can apply the new configuration the nixos-rebuild command.
+
+```nix
+sudo nixos-rebuild switch
+```
+
+The switch parameter will tell NixOS to start using the new configuration (generation) immediately.  As noted above rolling back to a prior good state generation is straightforward and you can do that from the terminal if already in NixOS, or via the custom boot manager for NixOS.
