@@ -2,10 +2,10 @@
 title = "Intro to Nix"
 authors = ["Shane Oatman"]
 description = "Introduces why I use the nix package manager and NixOS."
-updated = "2025-06-06T22:14:17+00:00"
+updated = "2025-06-16T15:08:05+00:00"
 draft = false
 [extra]
-keywords = ["nix", "nixos", "packages", "package manager", "linux", "operating system", "language", "programming", "functional", "declarative", "systems", "configuration", "git", "rollback"]
+keywords = ["nix", "nixos", "packages", "package manager", "linux", "operating system", "language", "programming", "functional", "declarative", "systems", "configuration", "git", "rollback", "wiki", "introduction", "overview", "experience", "functional", "declarative",
 image = "https://bitweaving.com/articles/devx/nix/Nix_Snowflake_Logo.svg.png"
 author = '''
 {
@@ -43,8 +43,9 @@ This article provides a high level overview of:
 - [nix.dev - Documentation](https://nix.dev/)
 - [Nix manual](https://nix.dev/manual/nix/2.28/introduction)
 - [Nixpkgs manual](https://nixos.org/manual/nixpkgs/stable/)
-- [Nix Package Manager & NixOS Download](https://nixos.org/dhttps://github.com/nix-community/home-manager)
-- [Nix Community - Home Manager]()
+- [Nix Package Manager & NixOS Download](https://nixos.org/download)
+- [Nix Community - Home Manager](https://github.com/nix-community/home-manager)
+- [Home Manager Manual](https://nix-community.github.io/home-manager/)
 
 ## Nix History
 
@@ -483,10 +484,64 @@ programs.git = {
 };
 ```
 
+
+## The NixOS wiki
+
+A key resource for resolving any configuration issues on NixOS is the [wiki](https://nixos.org/wiki/Main_Page).  I generally go to Google and enter the thing i'm having problem with and add NixOS.... and the first or second result is a link to the wiki.  For my laptop I have hybrid graphics, a dedicated GPU (nvidia) for heavy lifting and Intel graphics for UI rendering.  Getting this to work how I wanted took a bit of time (I tried different options in the wiki) but eventually found the configuration I wanted.
+
+Here's a link to the [Nvidia wiki](https://nixos.wiki/wiki/Nvidia) page and below is my current configuration for nvidia in the configuration.nix file:
+
+```nix
+hardware.nvidia = {
+
+  prime = {
+    offload = {
+    enable = true;
+    enableOffloadCmd = true;
+    };
+    # Make sure to use the correct Bus ID values for your system!
+    intelBusId = "PCI:0:2:0";
+    nvidiaBusId = "PCI:1:0:0";
+    # amdgpuBusId = "PCI:54:0:0"; For AMD GPU
+  };
+
+  # Modesetting is required.
+  modesetting.enable = true;
+
+  # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
+  # Enable this if you have graphical corruption issues or application crashes after waking
+  # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead
+  # of just the bare essentials.
+  powerManagement.enable = true;
+
+  # Fine-grained power management. Turns off GPU when not in use.
+  # Experimental and only works on modern Nvidia GPUs (Turing or newer).
+  powerManagement.finegrained = true;
+
+  # Use the NVidia open source kernel module (not to be confused with the
+  # independent third-party "nouveau" open source driver).
+  # Support is limited to the Turing and later architectures. Full list of
+  # supported GPUs is at:
+  # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
+  # Only available from driver 515.43.04+
+  # Currently alpha-quality/buggy, so false is currently the recommended setting.
+  open = false;
+
+  # Enable the Nvidia settings menu,
+	  # accessible via `nvidia-settings`.
+  nvidiaSettings = true;
+
+  # Optionally, you may need to select the appropriate driver version for your specific GPU.
+  package = config.boot.kernelPackages.nvidiaPackages.stable;
+};
+```
+
+> NixOS also has [forums](https://discourse.nixos.org/) where you can ask questions and get help from the Nix community.
+
 ## Wrap up
 
 If you made it this far, congratulations and thank you! For me, the declarative and reproducible nature of NixOS configuration and shell.nix for work on projects was worth the time to familiarize myself with the Nix ecosystem.
 
-I hope you found this helpful~
+I hope you found this helpful.  If you are interested in a deeper dive on any aspect of the Nix eco-system.  Feel free to ask.
 
 shane
