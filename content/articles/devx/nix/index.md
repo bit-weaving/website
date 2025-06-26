@@ -5,7 +5,7 @@ description = "Introduces why I use the nix package manager and NixOS."
 updated = "2025-06-16T15:08:05+00:00"
 draft = false
 [extra]
-keywords = ["nix", "nixos", "packages", "package manager", "linux", "operating system", "language", "programming", "functional", "declarative", "systems", "configuration", "git", "rollback", "wiki", "introduction", "overview", "experience", "functional", "declarative",
+keywords = ["nix", "nixos", "packages", "package manager", "linux", "operating system", "language", "programming", "functional", "declarative", "systems", "configuration", "git", "rollback", "wiki", "introduction", "overview", "experience", "functional", "declarative"]
 image = "https://bitweaving.com/articles/devx/nix/Nix_Snowflake_Logo.svg.png"
 author = '''
 {
@@ -309,7 +309,8 @@ Installing system-wide packages (global packages). In my case, this is limited t
 
 ```nix
 environment.systemPackages = with pkgs; [
-    #Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    # Do not forget to add an editor to edit configuration.nix!
+    # The Nano editor is also installed by default.
 
     brightnessctl
     gitFull
@@ -330,7 +331,7 @@ environment.systemPackages = with pkgs; [
     # native wayland support (unstable)
     wineWowPackages.waylandFull
   ];
-
+```
 
 Any time you modify your configuration file, you can apply the new configuration using the nixos-rebuild command.
 
