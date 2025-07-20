@@ -1,3 +1,4 @@
 node_modules
 public
 .direnv
+static/processed_images/*
